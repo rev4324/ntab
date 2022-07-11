@@ -7,6 +7,9 @@ module.exports = {
       fontFamily: {
         code: '"Cascadia Code", Menlo, "Roboto Mono", "Consolas", monospace',
         display: 'Inter'
+      },
+      textColor: {
+        dynamic: 'var(--dynamic-primary-color)'
       }
     }
   },

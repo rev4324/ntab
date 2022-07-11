@@ -30,7 +30,7 @@
   }, 1000);
 </script>
 
-<div class="flex flex-col items-center rounded-lg m-0 text-neutral-300 font-bold">
+<div class="flex flex-col items-center rounded-lg m-0 text-dynamic font-bold">
   <time class="text-[4rem] leading-[3rem] select-none mt-0 mb-4">{time}</time>
   <date class="text-sm select-none">{date}</date>
 </div>

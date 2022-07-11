@@ -20,7 +20,7 @@ import Plus from "../svg/Plus.svelte";
   })
 </script>
 
-<div class="flex flex-col items-center">
+<div class="flex flex-col items-center text-neutral-300">
   <label for="menu__image-input" class="cursor-pointer aspect-square border-[1px] border-dashed text-sm border-neutral-700 rounded-lg p-1 self-center flex flex-col items-center justify-center hover:border-neutral-500 active:bg-neutral-800 transition-colors ease-out">
     {#if img == ''}
     <div class="w-12 h-12 flex items-center justify-center">

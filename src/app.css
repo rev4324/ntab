@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .defaultBtn {
-  @apply active:bg-neutral-700 bg-transparent transition-colors ease-out rounded-lg hover:bg-neutral-800 text-ellipsis;
+  @apply active:bg-[#00000055] bg-transparent transition-colors ease-out rounded-lg hover:bg-[#00000022] text-ellipsis;
 }
 
 .primaryActionBtn {
@@ -24,4 +24,23 @@
 
 .modalBackdrop {
 	@apply fixed top-0 left-0 w-screen h-screen flex flex-col items-center justify-center bg-[#000000cf] z-50;
+}
+
+.pickerButton {
+  -webkit-appearance: none;
+  padding: 0;
+  border: none;
+  border-radius: 10em;
+  width: 2em;
+  height: 2em;
+}
+.pickerButton::-webkit-color-swatch {
+  border: none;
+  border-radius: 10em;
+  padding: 0;
+}
+.pickerButton::-webkit-color-swatch-wrapper {
+  border: none;
+  border-radius: 10em;
+  padding: 0;
 }

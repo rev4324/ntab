@@ -4,7 +4,6 @@
 	import Input from './Input.svelte';
 	import Check from './svg/Check.svelte';
 	import Image from './ModifyDialog/Image.svelte';
-	import X from './svg/X.svelte';
 	import { shortcut, clickOutside } from '$lib/events';
 	import { fly, fade } from 'svelte/transition';
 	import CloseButton from './Primitives/CloseButton.svelte';
@@ -35,7 +34,6 @@
 	};
 </script>
 
-{#if $addNewOpen}
 	<div
 		class="modalBackdrop"
 		transition:fade={{ duration: 100 }}
@@ -77,4 +75,3 @@
 			/>
 		</div>
 	</div>
-{/if}
