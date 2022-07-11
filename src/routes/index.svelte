@@ -17,9 +17,7 @@ import { getTextColor, loadStorage } from '$lib/helpers';
 	onMount(() => {
 		setTimeout(() => {
 			grid.style.opacity = '100';
-		}, 50);
-		$settingsOpen = true
-		
+		}, 50);		
 		loadStorage();
 
     // elem.style.backgroundImage = `url(${$wallpaperUrl})`
