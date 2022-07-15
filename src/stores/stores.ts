@@ -8,7 +8,6 @@ export interface BookmarkType {
 }
 export interface BookmarkTypes extends Array<BookmarkType> {}
 
-
 export const bookmarks = writable(<BookmarkTypes>[]);
 
 export const addNewOpen = writable(false);
@@ -20,8 +19,7 @@ export const wallpaperUrl = writable('');
 export const bgColor = writable('#000000');
 export const openWeatherApiToken = writable('');
 export const location = writable({
-  address: "",
-  lon: 0,
-  lat: 0
+	address: '',
+	lon: 0,
+	lat: 0
 });
-

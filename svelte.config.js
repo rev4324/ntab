@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-static';
+import adapter from 'sveltekit-adapter-chrome-extension';
 import preprocess from 'svelte-preprocess';
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -11,6 +11,7 @@ const config = {
 
 	kit: {
 		adapter: adapter(),
+		appDir: "apap",
 		prerender: {
 			default: true
 		},

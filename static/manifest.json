@@ -1,0 +1,11 @@
+{
+  "name": "ntab",
+  "description": "simple new tab page",
+  "version": "0.1",
+  "manifest_version": 3,
+  "author": "rev4324",
+  "chrome_url_overrides" : {
+    "newtab": "index.html"
+  },
+  "permissions": ["storage"]
+}

@@ -1,7 +1,6 @@
 <script lang="ts">
-import Clock from "./Clock/Clock.svelte";
-import Weather from "./Weather/Weather.svelte";
-
+  import Clock from './Clock/Clock.svelte';
+  import Weather from './Weather/Weather.svelte';
 </script>
 
 <div class="flex flex-row py-3 gap-5 select-none">

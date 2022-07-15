@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { menuOpen } from '../stores/bookmarks';
+  import { menuOpen } from '../stores/stores';
   import ContextMenu from './ModifyDialog/Dialog.svelte';
   import Favicon from './Favicon.svelte';
 

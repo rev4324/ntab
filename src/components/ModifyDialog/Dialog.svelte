@@ -1,14 +1,14 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import type { BookmarkType } from '../../stores/bookmarks';
+  import type { BookmarkType } from '../../stores/stores';
   import { updateBookmarkStorage } from '../../lib/helpers';
   import Check from '../svg/Check.svelte';
-	import { clickOutside } from '../../lib/events';
-	import { menuOpen, bookmarks } from '../../stores/bookmarks';
-	import Input from '../Input.svelte';
-	import Trash from '../svg/Trash.svelte';
-	import Image from './Image.svelte';
-  import { fade } from 'svelte/transition'
+  import { clickOutside } from '../../lib/events';
+  import { menuOpen, bookmarks } from '../../stores/stores';
+  import Input from '../Input.svelte';
+  import Trash from '../svg/Trash.svelte';
+  import Image from './Image.svelte';
+  import { fade } from 'svelte/transition';
 
   interface Dimensions {
     top: string;
@@ -20,16 +20,16 @@
   export let dims: Dimensions;
   export let bookmarkId: string;
   export let url: string;
-	export let standalone = false;
+  export let standalone = false;
   export let base64: string;
 
   let elem: HTMLDivElement;
 
   onMount(() => {
-		if (standalone === false) {
-			elem.style.top = dims.top;
-			elem.style.left = dims.left;
-		}
+    if (standalone === false) {
+      elem.style.top = dims.top;
+      elem.style.left = dims.left;
+    }
   });
 
   let changedBookmark: BookmarkType = {
@@ -59,10 +59,10 @@
   bind:this={elem}
   use:clickOutside
   on:outsideclick={() => {
-			shouldBeOpened = false;
-			menuOpen.set(false);
+    shouldBeOpened = false;
+    menuOpen.set(false);
   }}
-  transition:fade="{{duration: 80}}"
+  transition:fade={{ duration: 80 }}
 >
   <form on:submit|preventDefault={updateBookmark} class="flex flex-col">
     <div class="menu__item-row flex flex-row justify-between mb-2">
@@ -79,7 +79,7 @@
       >
         <Trash />
       </button>
-    </div>	
+    </div>
     <div class="menu__input-column flex flex-col gap-2">
       <Image bind:img={changedBookmark.imageBase64} bind:href={changedBookmark.url} />
       <Input type="text" id="name" name="Nazwa" bind:bound={changedBookmark.name} />
