@@ -14,6 +14,11 @@ const config = {
       loader: async () => (await import('../i18n/en/settings.json')).default
     },
     {
+      locale: 'en',
+      key: 'timeAndDate',
+      loader: async () => (await import('../i18n/en/timeAndDate.json')).default
+    },
+    {
       locale: 'pl',
       key: 'newBookmark',
       loader: async () => (await import('../i18n/pl/newBookmark.json')).default
@@ -22,6 +27,11 @@ const config = {
       locale: 'pl',
       key: 'settings',
       loader: async () => (await import('../i18n/pl/settings.json')).default
+    },
+    {
+      locale: 'pl',
+      key: 'timeAndDate',
+      loader: async () => (await import('../i18n/pl/timeAndDate.json')).default
     }
   ]
 };

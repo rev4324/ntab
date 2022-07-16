@@ -1,33 +1,43 @@
 <script lang="ts">
   import names from './names';
+  import { locale } from '$lib/translations';
 
-  const getMonthName = (month: number) => names.month[month];
-  const getDayOfWeekName = (dayOfWeek: number) => names.dayOfWeek[dayOfWeek];
+  let time: string;
+  let date: string;
 
-  const getTime = () => {
-    let date = new Date();
-    let memoizedGetMinutes = date.getMinutes();
-    let mins = memoizedGetMinutes < 10 ? `0${memoizedGetMinutes}` : memoizedGetMinutes.toString();
-    return `${date.getHours()}∶${mins}`;
-  };
+  locale.subscribe((currentLocale) => {
+    const localizedNames = names.filter((elem) => elem.locale === currentLocale)[0];
 
-  const getDate = () => {
-    let date = new Date();
-    let dayOfWeek = date.getDay();
-    let dayOfMonth = date.getDate();
-    let month = date.getMonth();
-    return `${getDayOfWeekName(dayOfWeek)}, ${dayOfMonth} ${getMonthName(month)}`;
-  };
+    const getMonthName = (month: number) => localizedNames.month[month];
+    const getDayOfWeekName = (dayOfWeek: number) => localizedNames.dayOfWeek[dayOfWeek];
 
-  let time = getTime();
-  let date = getDate();
+    const getTime = () => {
+      let date = new Date();
+      let memoizedGetMinutes = date.getMinutes();
+      let mins = memoizedGetMinutes < 10 ? `0${memoizedGetMinutes}` : memoizedGetMinutes.toString();
+      return `${date.getHours()}∶${mins}`;
+    };
 
-  setInterval(() => {
+    const getDate = () => {
+      let date = new Date();
+      let dayOfWeek = date.getDay();
+      let dayOfMonth = date.getDate();
+      let month = date.getMonth();
+      return currentLocale === 'pl'
+        ? `${getDayOfWeekName(dayOfWeek)}, ${dayOfMonth} ${getMonthName(month)}`
+        : `${getDayOfWeekName(dayOfWeek)}, ${getMonthName(month)} ${dayOfMonth}`;
+    };
+
     time = getTime();
-    if (time === '0∶00') {
-      date = getDate();
-    }
-  }, 1000);
+    date = getDate();
+
+    setInterval(() => {
+      time = getTime();
+      if (time === '0∶00') {
+        date = getDate();
+      }
+    }, 1000);
+  });
 </script>
 
 <div class="flex flex-col items-center rounded-lg m-0 text-dynamic font-bold">
