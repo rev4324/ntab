@@ -1,10 +1,10 @@
 import { writable } from 'svelte/store';
 
 export interface BookmarkType {
-	id?: string;
-	name: string;
-	url: string;
-	imageBase64: string;
+  id?: string;
+  name: string;
+  url: string;
+  imageBase64: string;
 }
 export interface BookmarkTypes extends Array<BookmarkType> {}
 
@@ -19,7 +19,7 @@ export const wallpaperUrl = writable('');
 export const bgColor = writable('#000000');
 export const openWeatherApiToken = writable('');
 export const location = writable({
-	address: '',
-	lon: 0,
-	lat: 0
+  address: '',
+  lon: 0,
+  lat: 0
 });

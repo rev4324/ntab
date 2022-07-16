@@ -1,5 +1,6 @@
 import { bookmarks, wallpaperUrl, openWeatherApiToken, location, bgColor } from '../stores/stores';
 import { get } from 'svelte/store';
+import { locale } from './translations';
 
 export const loadStorage = () => {
   const existingBookmarks = localStorage.getItem('bookmarks');
@@ -14,6 +15,8 @@ export const loadStorage = () => {
     : '';
   const existingLocation = localStorage.getItem('location');
   existingLocation ? location.set(JSON.parse(existingLocation || '')) : {};
+  const existingLang = localStorage.getItem('lang');
+  existingLang ? locale.set(JSON.parse(existingLang || '')) : '';
 };
 
 export const updateBookmarkStorage = () =>

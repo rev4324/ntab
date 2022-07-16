@@ -19,7 +19,6 @@
       grid.style.opacity = '100';
     }, 50);
     loadStorage();
-
     // elem.style.backgroundImage = `url(${$wallpaperUrl})`
     // wallpaperUrl.subscribe((value) => elem.style.backgroundImage = `url(${value})`)
     elem.style.backgroundColor = $bgColor;
@@ -27,9 +26,6 @@
       elem.style.backgroundColor = value;
       elem.style.setProperty('--dynamic-primary-color', getTextColor(value));
     });
-
-    console.log(getTextColor($bgColor));
-    console.log($bgColor);
   });
 </script>
 

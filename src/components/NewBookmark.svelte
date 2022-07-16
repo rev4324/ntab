@@ -7,6 +7,7 @@
   import { shortcut, clickOutside } from '$lib/events';
   import { fly, fade } from 'svelte/transition';
   import CloseButton from './Primitives/CloseButton.svelte';
+  import { t } from '$lib/translations';
 
   const newBookmark: BookmarkType = {
     name: '',
@@ -49,13 +50,18 @@
       clear();
     }}
   >
-    <h2 class="modalHeading">Nowa zakładka</h2>
+    <h2 class="modalHeading">{$t('newBookmark.heading')}</h2>
     <div class="modalBox" transition:fly={{ duration: 250, y: -20 }}>
       <form on:submit|preventDefault={addBookmark} class="flex flex-col">
         <div class="menu__input-column flex flex-col gap-2">
           <Image bind:img={newBookmark.imageBase64} bind:href={newBookmark.url} />
-          <Input type="text" id="name" name="Nazwa" bind:bound={newBookmark.name} />
-          <Input type="url" id="url" name="Adres URL" bind:bound={newBookmark.url} />
+          <Input
+            type="text"
+            id="name"
+            name={$t('newBookmark.name')}
+            bind:bound={newBookmark.name}
+          />
+          <Input type="url" id="url" name={$t('newBookmark.url')} bind:bound={newBookmark.url} />
         </div>
         <div class="flex flex-row gap-[1px] items-center justify-center">
           <button class="primaryActionBtn" type="submit">
